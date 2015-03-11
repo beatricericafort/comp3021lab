@@ -1,6 +1,10 @@
-package base;
+package blog;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+
+import base.Post;
+import base.User;
 
 public class Blog {
 	private User user;
@@ -67,5 +71,26 @@ public class Blog {
 		}
 		return true;
 		
+	}
+	
+	public void search(int month, String someone){
+		Calendar cal = Calendar.getInstance();
+		month--;
+		for (Post p: allPosts){
+			cal.setTime(p.getDate());
+			int postMonth = cal.get(Calendar.MONTH);
+			
+			if (month != postMonth){
+				continue;
+			}
+			
+			if (p.getContent().contains(someone)){
+				System.out.println(p);
+			}
+		}
+	}
+	
+	public void setPosts(ArrayList<Post> posts){
+		allPosts = posts;
 	}
 }

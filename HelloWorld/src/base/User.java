@@ -1,6 +1,6 @@
 package base;
 
-public class User {
+public class User implements Comparable <User>{
 	private int userId;
 	private String userName;
 	private String userEmail;
@@ -9,8 +9,6 @@ public class User {
 		this.userId = userId;
 		this.userEmail = userEmail;
 		this.userName = userName;
-		
-		System.out.println("User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + "]");
 	}
 
 	public int getUserId() {
@@ -71,5 +69,18 @@ public class User {
 	@Override
 	public int hashCode(){
 		return (userId + userName.hashCode() + userEmail.hashCode())*17;
+	}
+
+	@Override
+	public int compareTo(User o) {
+		User otherUser = (User) o;
+		int otherUserId = otherUser.getUserId();
+		if (userId > otherUserId){
+			return 1;
+		} else if (userId < otherUserId){
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 }

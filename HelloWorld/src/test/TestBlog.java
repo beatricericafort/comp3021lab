@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
 
-import base.Blog;
 import base.Post;
 import base.User;
+import blog.Blog;
 
 public class TestBlog {
 	public String getInput(){
