@@ -22,6 +22,10 @@ public class Blog implements Serializable {
 		allPosts = new ArrayList<Post>();
 	}
 
+	public ArrayList<Post> getPosts(){
+		return allPosts;
+	}
+	
 	public void save(String filepath) {
 		try {
 			FileOutputStream fileOutStream = new FileOutputStream(filepath);
